@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relationship Emergency 🚨</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: #08090d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    min-height: 100vh;
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen {
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.alert {
+    color: #ff3b5c;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.emoji {
+    font-size: 65px;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+p {
+    color: #b9bcc7;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.warning {
+    background: #11131a;
+    border: 1px solid #292c38;
+    border-radius: 18px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid #252833;
+    font-size: 15px;
+}
+
+.stat:last-child {
+    border-bottom: none;
+}
+
+.red {
+    color: #ff4b69;
+}
+
+.green {
+    color: #56e39f;
+}
+
+.yellow {
+    color: #ffd166;
+}
+
+button {
+    border: none;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    background: #ff3b5c;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.secondary {
+    background: #171923;
+    border: 1px solid #303340;
+}
+
+.option {
+    background: #11131a;
+    border: 1px solid #303340;
+    color: white;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.option:hover {
+    background: #1c1f2a;
+}
+
+.progress {
+    width: 100%;
+    height: 6px;
+    background: #20222b;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 25%;
+    background: #ff3b5c;
+    transition: 0.4s;
+}
+
+.big-number {
+    font-size: 70px;
+    font-weight: bold;
+    color: #ff3b5c;
+    margin: 15px 0;
+}
+
+.message {
+    background: #11131a;
+    border-radius: 20px;
+    padding: 25px;
+    line-height: 1.8;
+    text-align: left;
+    border: 1px solid #292c38;
+}
+
+.heart {
+    font-size: 55px;
+    margin: 15px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.final {
+    font-size: 18px;
+    color: #f2f2f2;
+}
+
+.small {
+    font-size: 13px;
+    color: #777b88;
+    margin-top: 18px;
+}
+
+.loading {
+    width: 100%;
+    height: 8px;
+    background: #20222b;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 25px 0;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background: #ff3b5c;
+    animation: loading 3s forwards;
+}
+
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 14px;
+    top: -20px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+@keyframes loading {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SCREEN 1 -->
+<div class="screen" id="screen1">
+
+    <div class="alert">🚨 URGENT SYSTEM ALERT 🚨</div>
+
+    <div class="emoji">❤️‍🩹</div>
+
+    <h1>RELATIONSHIP<br>EMERGENCY</h1>
+
+    <p>
+        A serious relationship malfunction has been detected.
+        Immediate attention is required.
+    </p>
+
+    <div class="warning">
+
+        <div class="stat">
+            <span>❤️ Love</span>
+            <strong class="green">100%</strong>
+        </div>
+
+        <div class="stat">
+            <span>😤 Anger</span>
+            <strong class="red">87%</strong>
+        </div>
+
+        <div class="stat">
+            <span>🗣️ Communication</span>
+            <strong class="yellow">2%</strong>
+        </div>
+
+        <div class="stat">
+            <span>🤡 Stubbornness</span>
+            <strong class="red">999%</strong>
+        </div>
+
+        <div class="stat">
+            <span>🥺 Missing You</span>
+            <strong class="green">CLASSIFIED</strong>
+        </div>
+
+    </div>
+
+    <p class="small">
+        This emergency may result in unexpected smiles,
+        emotional damage and one compulsory hug.
+    </p>
+
+    <button onclick="nextScreen(2)">
+        ENTER EMERGENCY ROOM 🚨
+    </button>
+
+</div>
+
+
+<!-- SCREEN 2 -->
+<div class="screen hidden" id="screen2">
+
+    <div class="alert">DIAGNOSTIC REPORT</div>
+
+    <div class="emoji">🩺</div>
+
+    <h2>System Diagnosis</h2>
+
+    <p>
+        We have investigated the situation carefully.
+        The results are... concerning. 😂
+    </p>
+
+    <div class="warning">
+
+        <div class="stat">
+            <span>Argument level</span>
+            <strong class="red">HIGH</strong>
+        </div>
+
+        <div class="stat">
+            <span>Missing each other</span>
+            <strong class="green">VERY HIGH</strong>
+        </div>
+
+        <div class="stat">
+            <span>Ego level</span>
+            <strong class="red">DANGEROUS</strong>
+        </div>
+
+        <div class="stat">
+            <span>Love level</span>
+            <strong class="green">UNLIMITED</strong>
+        </div>
+
+    </div>
+
+    <button onclick="nextScreen(3)">
+        VIEW EVIDENCE 🔍
+    </button>
+
+</div>
+
+
+<!-- SCREEN 3 -->
+<div class="screen hidden" id="screen3">
+
+    <div class="alert">EVIDENCE #001</div>
+
+    <div class="emoji">🕵️</div>
+
+    <h2>Who is actually winning this fight?</h2>
+
+    <p>
+        Choose carefully. Your answer will be recorded
+        in the official relationship database. 👀
+    </p>
+
+    <button class="option" onclick="answer('A')">
+        A. Me 😌
+    </button>
+
+    <button class="option" onclick="answer('B')">
+        B. You 😤
+    </button>
+
+    <button class="option" onclick="answer('C')">
+        C. Nobody. We both lost. 🤡
+    </button>
+
+    <button class="option" onclick="answer('D')">
+        D. Let's just stop fighting. 🥺
+    </button>
+
+    <p id="answerMessage" class="small"></p>
+
+</div>
+
+
+<!-- SCREEN 4 -->
+<div class="screen hidden" id="screen4">
+
+    <div class="alert">FINAL DIAGNOSTIC</div>
+
+    <div class="emoji">🥺</div>
+
+    <h2>One Last Question...</h2>
+
+    <p>
+        If two people love each other,
+        is one stupid fight really worth staying angry over?
+    </p>
+
+    <button class="option" onclick="nextScreen(5)">
+        No... ❤️
+    </button>
+
+    <button class="option" onclick="nextScreen(5)">
+        Absolutely not. 🥺
+    </button>
+
+    <button class="option" onclick="nextScreen(5)">
+        Okay fine... I miss you. 😭
+    </button>
+
+</div>
+
+
+<!-- SCREEN 5 -->
+<div class="screen hidden" id="screen5">
+
+    <div class="alert">SYSTEM PROCESSING...</div>
+
+    <div class="emoji">⚙️</div>
+
+    <h2>Preparing emergency solution...</h2>
+
+    <p>
+        Analysing anger...
+        <br>
+        Removing ego...
+        <br>
+        Restoring communication...
+    </p>
+
+    <div class="loading">
+        <div class="loading-bar"></div>
+    </div>
+
+    <p class="small">
+        Please wait...
+    </p>
+
+</div>
+
+
+<!-- SCREEN 6 -->
+<div class="screen hidden" id="screen6">
+
+    <div class="alert">SYSTEM MESSAGE</div>
+
+    <div class="heart">❤️</div>
+
+    <div class="message">
+
+        <p class="final">
+            Okay...
+        </p>
+
+        <p class="final">
+            This whole emergency broadcast was actually
+            just an excuse to tell you something.
+        </p>
+
+        <p class="final">
+            <strong>I'm sorry. 🥺❤️</strong>
+        </p>
+
+        <p class="final">
+            I know we fought.
+            I know things got a little messy.
+            And maybe both of us are stubborn sometimes. 😂
+        </p>
+
+        <p class="final">
+            But honestly...
+            I don't like being angry with you.
+        </p>
+
+        <p class="final">
+            One stupid fight should never become bigger
+            than what we have.
+        </p>
+
+        <p class="final">
+            So yeah...
+        </p>
+
+        <p class="final">
+            <strong>Sorry da. ❤️</strong>
+        </p>
+
+        <p class="final">
+            Now please stop being angry with me
+            and come here. 🫂
+        </p>
+
+    </div>
+
+    <button onclick="restoreSystem()">
+        FORGIVE ME ❤️
+    </button>
+
+</div>
+
+
+<!-- SCREEN 7 -->
+<div class="screen hidden" id="screen7">
+
+    <div class="emoji">🎉</div>
+
+    <div class="alert">EMERGENCY RESOLVED</div>
+
+    <h1>SYSTEM RESTORED ❤️</h1>
+
+    <p>
+        Relationship status:
+        <br><br>
+
+        🟢 <strong>BACK ONLINE</strong>
+    </p>
+
+    <div class="warning">
+
+        <div class="stat">
+            <span>❤️ Love</span>
+            <strong class="green">100%</strong>
+        </div>
+
+        <div class="stat">
+            <span>😤 Anger</span>
+            <strong class="green">0%</strong>
+        </div>
+
+        <div class="stat">
+            <span>🗣️ Communication</span>
+            <strong class="green">100%</strong>
+        </div>
+
+        <div class="stat">
+            <span>🫂 Hug Required</span>
+            <strong class="yellow">YES</strong>
+        </div>
+
+    </div>
+
+    <p>
+        Case closed. ❤️
+    </p>
+
+    <p class="small">
+        P.S. You were supposed to forgive me
+        before reaching this screen. 😂
+    </p>
+
+</div>
+
+</div>
+
+
+<script>
+
+function nextScreen(number) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.add("hidden");
+    });
+
+    document.getElementById("screen" + number)
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function answer(choice) {
+
+    const message = document.getElementById("answerMessage");
+
+    if (choice === "A") {
+        message.innerHTML =
+            "Interesting... confidence level detected. 😂";
+    }
+
+    if (choice === "B") {
+        message.innerHTML =
+            "Okay okay... let's not start another fight here. 😭";
+    }
+
+    if (choice === "C") {
+        message.innerHTML =
+            "CORRECT. Two idiots. One relationship. 😂❤️";
+    }
+
+    if (choice === "D") {
+        message.innerHTML =
+            "Finally! Someone is using common sense. 🥺❤️";
+    }
+
+    setTimeout(() => {
+        nextScreen(4);
+    }, 1800);
+}
+
+function restoreSystem() {
+
+    nextScreen(7);
+
+    for (let i = 0; i < 80; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        confetti.style.background =
+            ["#ff3b5c", "#ffd166", "#56e39f", "#7b61ff"]
+            [Math.floor(Math.random() * 4)];
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 4500);
+    }
+}
+
+</script>
+
+</body>
+</html>
